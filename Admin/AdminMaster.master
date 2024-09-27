@@ -1,0 +1,198 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMaster.master.cs" Inherits="Admin_AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+  <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title> CRM Admin Panel</title>
+      <!-- Favicon and touch icons -->
+      <link rel="shortcut icon" href="~/Theme/assets/dist/img/ico/favicon.png" type="image/x-icon"/>
+      <!-- Start Global Mandatory Style
+         =====================================================================-->
+      <link href="pagination.css" rel="stylesheet" />     
+      <!-- jquery-ui css -->
+      <link href="~/Theme/assets/plugins/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+      <!-- Bootstrap -->
+      <link href="~/Theme/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>    
+      <!-- Lobipanel css -->
+      <link href="~/Theme/assets/plugins/lobipanel/lobipanel.min.css" rel="stylesheet" type="text/css"/>
+      <!-- Pace css -->
+      <link href="~/Theme/assets/plugins/pace/flash.css" rel="stylesheet" type="text/css"/>
+      <!-- Font Awesome -->
+      <link href="~/Theme/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+      <!-- Pe-icon -->
+      <link href="~/Theme/assets/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet" type="text/css"/>
+      <!-- Themify icons -->
+      <link href="~/Theme/assets/themify-icons/themify-icons.css" rel="stylesheet" type="text/css"/>
+      <!-- End Global Mandatory Style
+         =====================================================================-->
+      <!-- Start page Label Plugins 
+         =====================================================================-->
+      <!-- Emojionearea -->
+      <link href="~/Theme/assets/plugins/emojionearea/emojionearea.min.css" rel="stylesheet" type="text/css"/>
+      <!-- Monthly css -->
+      <link href="~/Theme/assets/plugins/monthly/monthly.css" rel="stylesheet" type="text/css"/>
+      <!-- End page Label Plugins 
+         =====================================================================-->
+      <!-- Start Theme Layout Style
+         =====================================================================-->
+      <!-- Theme style -->
+    <link href="~/Theme/assets/dist/css/stylecrm.css" rel="stylesheet" type="text/css"/>
+
+      <!-- End Theme Layout Style
+         =====================================================================-->
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="hold-transition sidebar-mini">
+    <form id="form1"  runat="server">    
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
+         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>         
+    <div id="preloader">
+        <div id="status"></div>
+    </div>
+        <div class="wrapper">
+             <header class="main-header">
+                <!--header crm -->
+                <a href="index.html" class="logo">
+                    <span class="logo-mini">
+                        <img src="../../Theme/assets/dist/img/mini-logo.png" alt=""/> </span>
+                    <span class="logo-lg">
+                        <img src="../../Theme/assets/dist/img/logo.png" alt=""/>
+                    </span>
+                </a>
+                <!-- header navigate bar -->
+                <nav class="navbar navbar-static-top">
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                       <span class="sr-only">Toggle Navigation</span>
+                        <span class="pe-7s-angle-left-circle"></span>
+                    </a>
+                
+                <!--User Photo with Information -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown-user">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                 <img src="../../Theme/assets/dist/img/avatar5.png" class="img-circle" height="45" width="45" alt="user" />
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="profile.html">
+                                    <i class="fa fa-user"></i>User Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-inbox"></i>Inbox</a>
+                                </li>
+                                <li>
+                                    <a href="login.html">
+                                        <i class="fa fa-sign-out"></i>Signout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+              </nav>
+            </header>
+            <!------------------------- End of Header ------------>
+           <aside class="main-sidebar">                
+                    <div class="sidebar">
+                        <ul class="sidebar-menu">   
+                             <li>
+                                <a href="frmDashboard.aspx">
+                                    <i class="fa fa-sign-out"></i><span>Dashboard</span>
+                                    <span class="pull-right-container"></span>
+                                </a>
+                            </li>                        
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-gears"></i><span>Manage Employees</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="frmEmpdetails.aspx">Add Employee</a></li>                                   
+                               
+                                    <li><a href="frmViewemployee.aspx">View Employee</a></li> 
+                                </ul>
+                            </li>   
+                              <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-address-book-o"></i><span>Manage Enquiry</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">                                                  
+                               
+                                    <li><a href="frmViewenquires.aspx">View Enquiry Details</a></li> 
+                                </ul>
+                            </li>                           
+                            <li>
+                                <a href="frmChangepassword.aspx">
+                                    <i class="fa fa-unlock"></i><span>Change Password</span>
+                                    <span class="pull-right-container"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="frmLogout.aspx">
+                                    <i class="fa fa-sign-out"></i><span>Logout</span>
+                                    <span class="pull-right-container"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>                
+            </aside> 
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">        
+        </asp:ContentPlaceHolder>
+
+            <footer class="main-footer">
+                <strong>Copyright &copy;2016-2017 <a href="#">Thememinister.</a></strong>All Rights Reserved.
+            </footer>
+         </div>
+    </form>
+    <!-- Start Core Plugins
+         =====================================================================-->
+      <!-- jQuery -->
+      <script src="../../Theme/assets/plugins/jQuery/jquery-1.12.4.min.js" type="text/javascript"></script>
+      <!-- jquery-ui --> 
+      <script src="../../Theme/assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+      <!-- Bootstrap -->
+      <script src="../../Theme/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+      <!-- lobipanel -->
+      <script src="../../Theme/assets/plugins/lobipanel/lobipanel.min.js" type="text/javascript"></script>
+      <!-- Pace js -->
+      <script src="../../Theme/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+      <!-- SlimScroll -->
+      <script src="../../Theme/assets/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript">    </script>
+      <!-- FastClick -->
+      <script src="../../Theme/assets/plugins/fastclick/fastclick.min.js" type="text/javascript"></script>
+      <!-- CRMadmin frame -->
+      <script src="../../Theme/assets/dist/js/custom.js" type="text/javascript"></script>
+      <!-- End Core Plugins
+         =====================================================================-->
+      <!-- Start Page Lavel Plugins
+         =====================================================================-->
+      <!-- ChartJs JavaScript -->
+      <script src="../../Theme/assets/plugins/chartJs/Chart.min.js" type="text/javascript"></script>
+      <!-- Counter js -->
+      <script src="../../Theme/assets/plugins/counterup/waypoints.js" type="text/javascript"></script>
+      <script src="../../Theme/assets/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
+      <!-- Monthly js -->
+      <script src="../../Theme/assets/plugins/monthly/monthly.js" type="text/javascript"></script>
+      <!-- End Page Lavel Plugins
+         =====================================================================-->
+      <!-- Start Theme label Script
+         =====================================================================-->
+      <!-- Dashboard js -->
+      <script src="../../Theme/assets/dist/js/dashboard.js" type="text/javascript"></script>
+      <!-- End Theme label Script
+         =====================================================================-->
+   <%--<script type="text/javascript" src="../../Theme/assets/dist/js/bs.pagination.js"></script>--%>
+    <script type="text/javascript" src="Pagination.css"></script>
+</body>
+</html>
